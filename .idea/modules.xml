@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/JavaTraining.iml" filepath="$PROJECT_DIR$/.idea/JavaTraining.iml" />
       <module fileurl="file://$PROJECT_DIR$/class01-jvm/class01-jvm.iml" filepath="$PROJECT_DIR$/class01-jvm/class01-jvm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/class02-gc-io/class02-gc-io.iml" filepath="$PROJECT_DIR$/class02-gc-io/class02-gc-io.iml" />
     </modules>
   </component>
 </project>
