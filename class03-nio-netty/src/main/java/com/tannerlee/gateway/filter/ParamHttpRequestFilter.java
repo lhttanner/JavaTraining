@@ -18,6 +18,7 @@ public class ParamHttpRequestFilter implements HttpRequestFilter {
      */
     @Override
     public void filter(FullHttpRequest fullRequest, ChannelHandlerContext ctx) {
-        fullRequest.uri(). + "s=aaaa";
+//        fullRequest.uri(). + "s=aaaa";
+        //TODO
     }
 }
