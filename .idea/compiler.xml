@@ -2,17 +2,21 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="class01-jvm" />
         <module name="class02-gc-io" />
+        <module name="class03-nio-nttey" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="15">
       <module name="class01-jvm" target="8" />
       <module name="class02-gc-io" target="8" />
+      <module name="class03-nio-netty" target="8" />
+      <module name="class03-nio-nttey" target="8" />
       <module name="main" target="8" />
     </bytecodeTargetLevel>
   </component>
@@ -20,6 +24,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="class01-jvm" options="-parameters" />
       <module name="class02-gc-io" options="-parameters" />
+      <module name="class03-nio-netty" options="-parameters" />
+      <module name="class03-nio-nttey" options="-parameters" />
       <module name="es7" options="-parameters" />
     </option>
   </component>

@@ -16,6 +16,7 @@
     <modules>
         <module>class01-jvm</module>
         <module>class02-gc-io</module>
+        <module>class03-nio-nttey</module>
     </modules>
 
     <dependencyManagement>
