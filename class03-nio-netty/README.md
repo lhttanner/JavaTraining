@@ -2,9 +2,9 @@
 ### 1.（必做）整合你上次作业的 httpclient/okhttp；
 com.tannerlee.gateway.NettyHttpServer
 ### 2.（选做）使用 netty 实现后端 http 访问（代替上一步骤）
-后台springboot 启动 9999 9998端口
-com.tannerlee.ServiceApplication1
-com.tannerlee.ServiceApplication
+后台springboot启动
+com.tannerlee.ServiceApplication1   8080端口
+com.tannerlee.ServiceApplication  9999
 ### 3.（必做）实现过滤器。
 com.tannerlee.gateway.filter.ParamHttpRequestFilter
 ### 4.（选做）实现路由。
