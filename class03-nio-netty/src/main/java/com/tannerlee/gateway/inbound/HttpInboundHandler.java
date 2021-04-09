@@ -1,7 +1,7 @@
 package com.tannerlee.gateway.inbound;
 
-import com.tannerlee.gateway.filter.HeaderHttpRequestFilter;
 import com.tannerlee.gateway.filter.HttpRequestFilter;
+import com.tannerlee.gateway.filter.ParamHttpRequestFilter;
 import com.tannerlee.gateway.outbound.HttpOutboundHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -17,7 +17,7 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
 
     private HttpOutboundHandler handler;
 
-    private HttpRequestFilter filter = new HeaderHttpRequestFilter();
+    private HttpRequestFilter filter = new ParamHttpRequestFilter();
 
     public HttpInboundHandler(List<String> proxyServer) {
         this.proxyServer = proxyServer;

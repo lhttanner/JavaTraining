@@ -12,12 +12,11 @@ import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.impl.nio.reactor.IOReactorConfig;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 import static io.netty.handler.codec.http.HttpResponseStatus.NO_CONTENT;
@@ -30,6 +29,7 @@ import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
  * @author liht
  * @date 2021/4/8
  */
+@Slf4j
 public class HttpOutboundHandler {
 
     //    private CloseableHttpAsyncClient httpclient;
@@ -51,6 +51,9 @@ public class HttpOutboundHandler {
         int queueSize = 2048;
         //失败策略
         RejectedExecutionHandler handler = new ThreadPoolExecutor.CallerRunsPolicy();//.DiscardPolicy();
+        proxyService = new ThreadPoolExecutor(cores, cores,
+                keepAliveTime, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<>(queueSize),
+                new NamedThreadFactory("proxyService"), handler);
 
         //TODO reactor 响应式IO 什么特点？？？？
         IOReactorConfig ioConfig = IOReactorConfig.custom()
@@ -72,8 +75,8 @@ public class HttpOutboundHandler {
 
     public void handle(final FullHttpRequest fullRequest, final ChannelHandlerContext ctx, HttpRequestFilter filter) {
         String backendUrl = router.route(this.backendUrls);
-        final String url = backendUrl + fullRequest.uri();
         filter.filter(fullRequest, ctx);
+        final String url = backendUrl + fullRequest.uri();
         proxyService.submit(() -> handleResponse(fullRequest, ctx, url));
     }
 
@@ -85,6 +88,7 @@ public class HttpOutboundHandler {
         FullHttpResponse response = null;
         try {
 //            String url = "http://localhost:9999/tannerlee/echo?s=" + "aaa";
+            log.info("current url :{}",url);
             String value = HttpClientUtil.get(url);
 
             response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(value.getBytes("UTF-8")));

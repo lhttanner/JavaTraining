@@ -15,9 +15,9 @@ import java.util.Arrays;
 
 public class NettyHttpServer {
 
-    private final static String proxyServices = System.setProperty("proxyServers", "http://localhost:9999,http://localhost:9998");
 
     public static void main(String[] args) throws InterruptedException {
+        String proxyServers = System.getProperty("proxyServers", "http://localhost:9999,http://localhost:8080");
         int port = 8808;
         EventLoopGroup bossGroup = new NioEventLoopGroup(2);
         EventLoopGroup workerGroup = new NioEventLoopGroup(16);
@@ -35,7 +35,7 @@ public class NettyHttpServer {
 
             b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
                     .handler(new LoggingHandler(LogLevel.INFO))
-                    .childHandler(new HttpInitializer(Arrays.asList(proxyServices.split(","))));
+                    .childHandler(new HttpInitializer(Arrays.asList(proxyServers.split(","))));
 
             Channel ch = b.bind(port).sync().channel();
             System.out.println("开启netty http服务器，监听地址和端口为 http://127.0.0.1:" + port + '/');

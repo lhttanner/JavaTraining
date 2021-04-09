@@ -2,6 +2,7 @@ package com.tannerlee.gateway.filter;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * com.tannerlee.gateway.filter
@@ -9,6 +10,7 @@ import io.netty.handler.codec.http.FullHttpRequest;
  * @author liht
  * @date 2021/4/8
  */
+@Slf4j
 public class ParamHttpRequestFilter implements HttpRequestFilter {
     /**
      * 对没有参数的，默认追加一个参数
@@ -18,7 +20,10 @@ public class ParamHttpRequestFilter implements HttpRequestFilter {
      */
     @Override
     public void filter(FullHttpRequest fullRequest, ChannelHandlerContext ctx) {
-//        fullRequest.uri(). + "s=aaaa";
-        //TODO
+        String url = fullRequest.uri();
+        log.info("modify before url : {}", url);
+        url = url + "tannerlee/echo?s=没有输入参数";
+        log.info("modify after url : {}", url);
+        fullRequest.setUri(url);
     }
 }
