@@ -11,6 +11,9 @@ com.tannerlee.HomeWork05 通过CountDownLatch
 com.tannerlee.HomeWork06 通过CompletableFuture
 com.tannerlee.HomeWork07 通过阻塞队列
 com.tannerlee.HomeWork08 通过isTerminated
+com.tannerlee.HomeWork09 通过synchronized
+com.tannerlee.HomeWork10 通过CyclicBarrier
+
 
 ### 3.（选做）列举常用的并发操作 API 和工具类，简单分析其使用场景和优缺点。
 
