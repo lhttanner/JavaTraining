@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="class01-jvm" />
+        <module name="class05-spring" />
         <module name="class04-concurrecy" />
         <module name="class03-nio-netty" />
         <module name="class02-gc-io" />
@@ -18,6 +19,7 @@
       <module name="class02-gc-io" target="8" />
       <module name="class03-nio-netty" target="8" />
       <module name="class04-concurrecy" target="8" />
+      <module name="class05-spring" target="8" />
       <module name="main" target="8" />
     </bytecodeTargetLevel>
   </component>
@@ -27,6 +29,7 @@
       <module name="class02-gc-io" options="-parameters" />
       <module name="class03-nio-netty" options="-parameters" />
       <module name="class04-concurrecy" options="-parameters" />
+      <module name="class05-spring" options="-parameters" />
       <module name="es7" options="-parameters" />
     </option>
   </component>

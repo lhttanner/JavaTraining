@@ -18,6 +18,7 @@
         <module>class02-gc-io</module>
         <module>class03-nio-nttey</module>
         <module>class04-concurrecy</module>
+        <module>class05-spring</module>
     </modules>
 
     <dependencyManagement>

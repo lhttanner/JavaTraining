@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/class02-gc-io/class02-gc-io.iml" filepath="$PROJECT_DIR$/class02-gc-io/class02-gc-io.iml" />
       <module fileurl="file://$PROJECT_DIR$/class03-nio-netty/class03-nio-netty.iml" filepath="$PROJECT_DIR$/class03-nio-netty/class03-nio-netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/class04-concurrecy/class04-concurrecy.iml" filepath="$PROJECT_DIR$/class04-concurrecy/class04-concurrecy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/class05-spring/class05-spring.iml" filepath="$PROJECT_DIR$/class05-spring/class05-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/main.iml" filepath="$PROJECT_DIR$/main.iml" />
     </modules>
   </component>
